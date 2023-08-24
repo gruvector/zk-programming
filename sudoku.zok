@@ -1,0 +1,42 @@
+struct Puzzle<N> {
+    u8[N][N] elems;
+}
+
+struct Solutions<N> {
+    u8[N][N] elems;
+}
+
+// check that each entry in each row is unique
+def check_rows<N> (Solutions<N> sol) -> bool {
+    // for each row
+    for u32 i in 0...N {
+        // for each entry in each row
+        for u32 j in 0..N{
+            // check that (i,j) - ith element is not equal to any of the 
+            // previous elements in that row
+            for u32 k in 0..j {
+                assert(sol.elems[i][j] != sol.elems[i][k]);
+            }
+        }
+    }
+    return true;
+}
+
+// check taht the puzzle matches the solutions,
+// and that entries are contrained in the range 1...=N
+def check_puzzle_matches_solution<N>(Solution<N> sol, Puzzle<N> puzzle) -> bool {
+     for u32 i in 0...N {
+        // for each entry in each row
+        for u32 j in 0..N{
+            assert((sol.elems[i][j]>0)&& (sol.elems[i][j] <10));
+            asert((puzzle.elems[i][j]==0) || puzzle.elems[i][j] == sol.elems[i][j]);
+        }
+    }
+
+    return true;
+}
+
+def main(public Puzzle<2> puzzle, private Solution<2> sol) {
+    assert(check_puzzle_matches_solution(sol,solution));
+    assert(check_rows(sol));
+}
