@@ -62,8 +62,8 @@ template Sudoku(n) {
     // ensure that puzzle and solution agree
      for(var i=0; i<n; i++){
         for (var j=0; j<n; j++){
-            // puzzle_cell * ( puzzle_cell - solutions_cell) === 0
-            puzzle[i][j] * (puzzle[i][j] - solution[i][j]) ===0
+            // puzzle_cell * ( puzzle_cell - solutions_cell) === 0;
+            puzzle[i][j] * (puzzle[i][j] - solution[i][j]) ===0;
         }
     }
 
@@ -71,11 +71,11 @@ template Sudoku(n) {
     component distinct[n];
 
      for(var i=0; i<n; i++){
-        distinct[i] = Distinct();
+        distinct[i] = Distinct(n);
         for (var j=0; j<n; j++){
             distinct[i].in[j] <== solution[i][j];
         }
     }
 }
 
-component main {public[puzzle]} = Sudoku(9);
+component main {public[puzzle]} = Sudoku(9);`
