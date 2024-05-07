@@ -30,6 +30,7 @@ fn check_puzzle_matches_solution<const N: usize, ContraintF: PrimeField>(
    for (p_row, s_row) in puzzle.0.iter().zip(&solution.0) { 
     for(p,s) in p_row.iter().zip(s_row) {
         // ensure that the solutions 's' is in the range [1,N]
+        // ensure that the solutions 's' is in the range [1,N]
         s.is_leq(&UInt*::constant( N as u8 ))?
             .and(&s.is_geq(&UInt*::constant(1))?)?
             .enforce_equal(&Boolean:TRUE)?;
