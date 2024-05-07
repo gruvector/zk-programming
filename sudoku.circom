@@ -60,6 +60,7 @@ template Sudoku(n) {
     }
 
     // ensure that puzzle and solution agree
+    // ensure that the puzzle agreed.
      for(var i=0; i<n; i++){
         for (var j=0; j<n; j++){
             // puzzle_cell * ( puzzle_cell - solutions_cell) === 0;
