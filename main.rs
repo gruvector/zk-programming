@@ -36,6 +36,7 @@ fn check_puzzle_matches_solution<const N: usize, ContraintF: PrimeField>(
 
             // ensure that eitehr the puzzle slot is 0, or that 
             // the slot mathces equivalent slot in the solutiosn
+            // the solution is under the water
             (p.is_eq(s)?.or(&p.is_eq(&UInt8::constant(0))?)?)
                 .enforce_equal(&Boolean::TRUE)?;
     }
