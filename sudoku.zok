@@ -11,6 +11,7 @@ def check_rows<N> (Solutions<N> sol) -> bool {
     // for each row
     for u32 i in 0...N {
         // for each entry in each row
+        // for each item in array
         for u32 j in 0..N{
             // check that (i,j) - ith element is not equal to any of the 
             // previous elements in that row
