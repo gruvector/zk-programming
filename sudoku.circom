@@ -10,6 +10,7 @@ template NonEqual() {
 }
 
 // all elements are unique in the array
+// all tabs are unique in the rows
 template Distinct(n) {
     signal input in[n];
     component nonEqual[n][n];
